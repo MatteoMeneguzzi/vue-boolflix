@@ -30,12 +30,13 @@ export default {
 	.container {
 		display: flex;
 		flex-direction: column;
+		h2 {
+			margin-bottom: 50px;
+		}
 		.movies,
 		.series {
 			display: flex;
 			flex-wrap: wrap;
-			h2 {
-			}
 		}
 	}
 }

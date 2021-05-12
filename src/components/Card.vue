@@ -10,7 +10,7 @@
 			@mouseover="hover = true"
 			@mouseleave="hover = false"
 		/>
-		<ul>
+		<ul v-if="hover">
 			<li>{{ info.title ? info.title : info.name }}</li>
 			<li>
 				{{ info.original_title ? info.original_title : info.original_name }}
@@ -26,7 +26,7 @@
 				<span v-else>{{ info.original_language }}</span>
 			</li>
 			<li>{{ OneToFive(info.vote_average) }}</li>
-			<i class="fas fa-star"></i>
+			<li><i class="fas fa-star"></i></li>
 		</ul>
 	</div>
 </template>
@@ -60,19 +60,24 @@ export default {
 	margin-bottom: 60px;
 	img {
 		max-width: 100%;
+		height: 100%;
 	}
 	ul {
 		position: absolute;
 		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
 		list-style: none;
-
+		padding: 20px;
+		background: rgba(34, 34, 34, 0.9);
+		z-index: 1;
+		li {
+			margin-bottom: 10px;
+			color: white;
+		}
 		i {
-			width: 30px;
-			height: 30px;
-			font-size: 20px;
-			display: block;
-			color: black;
-			background-color: white;
+			color: white;
 		}
 	}
 }
@@ -81,6 +86,7 @@ li.language {
 	width: 30px;
 	img {
 		max-width: 100%;
+		height: auto;
 	}
 }
 </style>
